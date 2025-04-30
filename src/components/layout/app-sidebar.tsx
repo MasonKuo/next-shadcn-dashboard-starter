@@ -108,10 +108,10 @@ export default function AppSidebar() {
             <button className='hover:bg-accent flex w-full items-center justify-between rounded-lg'>
               <div className='flex items-center gap-2'>
                 <div className='bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full'>
-                  {user?.name?.slice(0, 2).toUpperCase()}
+                  {user?.firstName}
                 </div>
                 <div className='flex flex-col items-start'>
-                  <span className='text-sm font-medium'>{user?.name}</span>
+                  <span className='text-sm font-medium'>{user?.firstName}</span>
                   <span className='text-muted-foreground text-xs'>
                     {user?.email}
                   </span>
@@ -123,7 +123,9 @@ export default function AppSidebar() {
           <DropdownMenuContent className='w-56' align='end' forceMount>
             <DropdownMenuLabel className='font-normal'>
               <div className='flex flex-col space-y-1'>
-                <p className='text-sm leading-none font-medium'>{user?.name}</p>
+                <p className='text-sm leading-none font-medium'>
+                  {user?.firstName}
+                </p>
                 <p className='text-muted-foreground text-xs leading-none'>
                   {user?.email}
                 </p>

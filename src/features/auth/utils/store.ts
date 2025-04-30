@@ -1,10 +1,13 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
 export type User = {
   id: string;
   email: string;
-  name: string;
+  status: boolean;
+  userName: string;
+  firstName: string;
+  lastName: string;
 };
 
 export type AuthState = {
@@ -45,7 +48,8 @@ export const useAuthStore = create<AuthState & AuthActions>()(
     }),
     {
       name: 'auth-store',
-      skipHydration: true
+      storage: createJSONStorage(() => localStorage),
+      skipHydration: false
     }
   )
 );

@@ -19,16 +19,16 @@ export default function ProfileViewPage() {
           <div className='flex items-center space-x-4'>
             <Avatar className='h-20 w-20'>
               <AvatarImage
-                src={`https://avatar.vercel.sh/${user.email}`}
-                alt={user.name}
+                src={`https://avatar.vercel.sh/${user?.email}`}
+                alt={user?.firstName}
               />
               <AvatarFallback>
-                {user.name.slice(0, 2).toUpperCase()}
+                {user?.firstName.slice(0, 2).toUpperCase()}
               </AvatarFallback>
             </Avatar>
             <div>
-              <h2 className='text-2xl font-bold'>{user.name}</h2>
-              <p className='text-muted-foreground'>{user.email}</p>
+              <h2 className='text-2xl font-bold'>{user?.firstName}</h2>
+              <p className='text-muted-foreground'>{user?.email}</p>
             </div>
           </div>
         </CardContent>

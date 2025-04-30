@@ -39,7 +39,7 @@ export default function SignInViewPage({ stars }: { stars: number }) {
       document.cookie = `auth_token=${data.accessToken}; path=/; max-age=604800`; // 7天过期
 
       // 保存用户信息到 store
-      login(data.user, data.accessToken);
+      login(data.data, data.accessToken);
       toast.success('Login successful');
       router.push('/dashboard/overview');
     } catch (error) {
