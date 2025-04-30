@@ -1,4 +1,3 @@
-import Providers from '@/components/layout/providers';
 import { Toaster } from '@/components/ui/sonner';
 import { fontVariables } from '@/lib/font';
 import ThemeProvider from '@/components/layout/ThemeToggle/theme-provider';
@@ -9,6 +8,7 @@ import NextTopLoader from 'nextjs-toploader';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import './globals.css';
 import './theme.css';
+import { ActiveThemeProvider } from '@/components/active-theme';
 
 const META_THEME_COLORS = {
   light: '#ffffff',
@@ -65,10 +65,10 @@ export default async function RootLayout({
             disableTransitionOnChange
             enableColorScheme
           >
-            <Providers activeThemeValue={activeThemeValue as string}>
+            <ActiveThemeProvider initialTheme={activeThemeValue as string}>
               <Toaster />
               {children}
-            </Providers>
+            </ActiveThemeProvider>
           </ThemeProvider>
         </NuqsAdapter>
       </body>

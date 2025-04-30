@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware';
 import { UniqueIdentifier } from '@dnd-kit/core';
 import { Column } from '../components/board-column';
 
-export type Status = 'TODO' | 'IN_PROGRESS' | 'DONE';
+export type Status = string;
 
 const defaultCols = [
   {
@@ -73,10 +73,7 @@ export const useTaskStore = create<State & Actions>()(
         })),
       addCol: (title: string) =>
         set((state) => ({
-          columns: [
-            ...state.columns,
-            { title, id: state.columns.length ? title.toUpperCase() : 'TODO' }
-          ]
+          columns: [...state.columns, { title, id: uuid() }]
         })),
       dragTask: (id: string | null) => set({ draggedTask: id }),
       removeTask: (id: string) =>

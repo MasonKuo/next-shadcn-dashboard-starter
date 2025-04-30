@@ -1,12 +1,19 @@
-import { auth } from '@clerk/nextjs/server';
+'use client';
+
+import { useAuthStore } from '@/features/auth/utils/store';
 import { redirect } from 'next/navigation';
+import { useEffect } from 'react';
 
-export default async function Page() {
-  const { userId } = await auth();
+export default function Page() {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
-  if (!userId) {
-    return redirect('/auth/sign-in');
-  } else {
-    redirect('/dashboard/overview');
-  }
+  useEffect(() => {
+    if (!isAuthenticated) {
+      redirect('/auth/sign-in');
+    } else {
+      redirect('/dashboard/overview');
+    }
+  }, [isAuthenticated]);
+
+  return null;
 }

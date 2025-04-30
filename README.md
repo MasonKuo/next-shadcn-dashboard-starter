@@ -89,11 +89,6 @@ src/
 > [!NOTE]  
 > We are using **Next 15** with **React 19**, follow these steps:
 
-Clone the repo:
-
-```
-git clone https://github.com/Kiranism/next-shadcn-dashboard-starter.git
-```
 
 - `pnpm install` ( we have legacy-peer-deps=true added in the .npmrc)
 - Create a `.env.local` file by copying the example environment file:

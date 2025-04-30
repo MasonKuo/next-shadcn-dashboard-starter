@@ -14,7 +14,14 @@ const nextConfig = {
       }
     ]
   },
-  transpilePackages: ['geist']
+  async rewrites() {
+    return [
+      {
+        source: '/bkapi/:path*',
+        destination: 'http://192.168.1.104:8080/v1/:path*'
+      }
+    ];
+  }
 };
 
 module.exports = nextConfig;

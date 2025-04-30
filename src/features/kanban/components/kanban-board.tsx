@@ -38,7 +38,7 @@ const defaultCols = [
   }
 ] satisfies Column[];
 
-export type ColumnId = (typeof defaultCols)[number]['id'];
+export type ColumnId = string;
 
 export function KanbanBoard() {
   // const [columns, setColumns] = useState<Column[]>(defaultCols);

@@ -31,10 +31,9 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'Account',
-    url: '#', // Placeholder as there is no direct link for the parent
+    url: '/dashboard/profile', // Placeholder as there is no direct link for the parent
     icon: 'billing',
     isActive: true,
-
     items: [
       {
         title: 'Profile',
