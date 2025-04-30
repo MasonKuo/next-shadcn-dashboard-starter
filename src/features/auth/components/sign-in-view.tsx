@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
-export default function SignInViewPage() {
+export default function SignInViewPage({ stars }: { stars: number }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -85,6 +85,9 @@ export default function SignInViewPage() {
           <Button type='submit' className='w-full' disabled={isLoading}>
             {isLoading ? 'Signing in...' : 'Sign in'}
           </Button>
+          <div className='hidden'>
+            <p>stars: {stars}</p>
+          </div>
         </form>
       </div>
     </div>
