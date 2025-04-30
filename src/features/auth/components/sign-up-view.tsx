@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import Link from 'next/link';
 
-export default function SignUpViewPage() {
+export default function SignUpViewPage({ stars }: { stars: number }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -102,6 +102,9 @@ export default function SignUpViewPage() {
             Sign in
           </Link>
         </p>
+        <div className='hidden'>
+          <p>stars: {stars}</p>
+        </div>
       </div>
     </div>
   );
