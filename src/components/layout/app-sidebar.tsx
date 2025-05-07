@@ -33,6 +33,7 @@ import * as React from 'react';
 import { Icons } from '../icons';
 import { OrgSwitcher } from '../org-switcher';
 import { useAuthStore } from '@/features/auth/utils/store';
+import { UserAvatarProfile } from '../user-avatar-profile';
 
 export const company = {
   name: 'Acme Inc',
@@ -105,20 +106,19 @@ export default function AppSidebar() {
       <SidebarFooter>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <button className='hover:bg-accent flex w-full items-center justify-between rounded-lg'>
-              <div className='flex items-center gap-2'>
-                <div className='bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full'>
-                  {user?.firstName}
-                </div>
-                <div className='flex flex-col items-start'>
-                  <span className='text-sm font-medium'>{user?.firstName}</span>
-                  <span className='text-muted-foreground text-xs'>
-                    {user?.email}
-                  </span>
-                </div>
-              </div>
-              <IconChevronsDown className='h-4 w-4' />
-            </button>
+            <SidebarMenuButton
+              size='lg'
+              className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
+            >
+              {user && (
+                <UserAvatarProfile
+                  className='h-8 w-8 rounded-lg'
+                  showInfo
+                  user={user}
+                />
+              )}
+              <IconChevronsDown className='ml-auto size-4' />
+            </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent className='w-56' align='end' forceMount>
             <DropdownMenuLabel className='font-normal'>
